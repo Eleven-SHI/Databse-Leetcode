@@ -1,0 +1,48 @@
+Table: Person
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| PersonId    | int     |
+| FirstName   | varchar |
+| LastName    | varchar |
++-------------+---------+
+PersonId is the primary key column for this table.
+Table: Address
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| AddressId   | int     |
+| PersonId    | int     |
+| City        | varchar |
+| State       | varchar |
++-------------+---------+
+AddressId is the primary key column for this table.
+ 
+
+Write a SQL query for a report that provides the following information for each person in the Person table, regardless if there is an address for each of those people:
+
+FirstName, LastName, City, State
+
+来源From：力扣（LeetCode）
+链接Link：https://leetcode-cn.com/problems/combine-two-tables
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+Copyright belongs to LeetCode. Commercial reprint please contact the official authorization, non-commercial reprint please indicate the source.
+
+
+/* Write your PL/SQL query statement below */
+/* Oracle */
+Select Person.FirstName, Person.LastName, Address.City, Address.State
+From Person Left Join Address
+On Person.PersonID = Address.PersonID;
+
+/*
+Result:执行结果：
+Pass 通过
+Detail 显示详情
+Time 执行用时：706 ms
+Beating 61.16% of all Oracle SQL submissions 在所有 oraclesql 提交中击败了61.16%的用户
+Memory consumption 内存消耗: 0 B
+Beating 100.00% of users in all Oracle SQL commits 在所有 oraclesql 提交中击败了100.00%的用户
+*/
